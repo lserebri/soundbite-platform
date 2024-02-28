@@ -1,0 +1,36 @@
+version: "3.9"
+services:
+  server:
+    container_name: server_container
+    env_file: .env
+    restart: always
+    image: soundbite-platform-server:latest
+    build:
+        dockerfile: Dockerfile
+        context: .
+    volumes:
+        - .:/usr/app/
+        - /usr/app/node_modules
+    command: npm run start
+    depends_on:
+      - postgres
+    environment:
+      PORT: ${SERVER_PORT}
+  postgres:
+    container_name: pg_container
+    image: postgres:latest
+    restart: always
+    environment: 
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4:latest
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - ${PGADMIN_HOST_PORT}:${PGADMIN_CONTAINER_PORT}
