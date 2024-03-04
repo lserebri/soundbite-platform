@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import soundBiteRouter from './routes/soundBite.route'
+import soundBiteRouter from './routes/soundBite.route.js'
 
 const app = express();
 const port = 3000;
