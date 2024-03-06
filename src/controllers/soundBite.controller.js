@@ -1,7 +1,15 @@
 import * as soundBiteService from '../services/soundBite.service.js';
+import User from '../models/user.model.js'
+
 
 export async function create(req, res, next) {
   try {
+    console.log(User)
+    await User.create({
+      firstName: 'Zoé',
+      lastName: 'GSGR',
+      // last name omitted, but this is still valid!
+    });
     res.json({
       message: await soundBiteService.create(
         req.body.videoURL, { 

@@ -1,9 +1,12 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import soundBiteRouter from './routes/soundBite.route.js'
+import soundBiteRouter from './routes/soundBite.route.js';
+import { syncModels } from './config/sequelize.config.js';
 
 const app = express();
 const port = 3000;
+
+syncModels();
 
 app.use(bodyParser.json());
 app.use(
