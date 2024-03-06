@@ -4,7 +4,6 @@ import User from '../models/user.model.js'
 
 export async function create(req, res, next) {
   try {
-    console.log(User)
     await User.create({
       firstName: 'Zoé',
       lastName: 'GSGR',

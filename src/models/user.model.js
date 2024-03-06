@@ -1,4 +1,4 @@
-import { Sequelize, DataTypes } from 'sequelize';
+import { DataTypes } from 'sequelize';
 
 import {sequelize} from '../config/sequelize.config.js'
 
@@ -17,6 +17,3 @@ const User = sequelize.define('users', {
 });
 
 export default User;
-
-// `sequelize.define` also returns the model
-console.log(User === sequelize.models.User); // true
