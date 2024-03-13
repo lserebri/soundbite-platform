@@ -1,8 +1,8 @@
 import express from 'express';
-import * as soundBiteController from '../controllers/soundBite.controller.js'
+import * as soundbiteController from '../controllers/soundbite.controller.js'
 
 const router = express.Router();
 
-router.post('/', soundBiteController.create);
+router.post('/', soundbiteController.create);
 
 export default router;

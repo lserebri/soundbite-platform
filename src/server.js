@@ -1,7 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import soundBiteRouter from './routes/soundBite.route.js';
-import rootRouter from './routes/root.route.js';
+import authRouter from './routes/auth.route.js';
+import userRouter from './routes/user.route.js';
 import { syncModels } from './config/sequelize.config.js';
 import { auth } from 'express-openid-connect';
 import { auth0Config } from './config/auth0.config.js';
@@ -21,7 +22,8 @@ app.use(
   }),
 );
 
-app.use('/', rootRouter);
+app.use('/', authRouter);
+app.use('/user', userRouter);
 app.use('/sound-bite', soundBiteRouter);
 
 app.use((err, req, res, next) => {

@@ -1,4 +1,7 @@
 export const auth0Config = {
+  routes: {
+    login: false,
+  },
   authRequired: false,
   auth0Logout: true,
   baseURL: process.env.AUTH0_BASE_URL,

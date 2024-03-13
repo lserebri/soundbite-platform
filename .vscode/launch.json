@@ -2,11 +2,25 @@
   "configurations": [
     {
       "name": "Launch Program",
-      "program": "${workspaceFolder}/app.js",
+      "program": "${workspaceFolder}/src/server.js",
       "request": "launch",
       "skipFiles": [
         "<node_internals>/**"
       ],
+      "env": {
+        "SERVER_PORT":"8000",
+        "AUTH0_BASE_URL":"http://localhost:3000",
+        "AUTH0_CLIENT_ID":"vTAnpTiYxnfgX4hlfp6UHMkaTDJ4ArMA",
+        "AUTH0_ISSUER_BASE_URL":"https://lserebriak.uk.auth0.com",
+        "AUTH0_SECRET":"7YY2ZUUQFGAW7JQP6FAWWHWU",
+
+
+        "PG_LOCAL_HOST":"localhost",
+        "PG_LOCAL_PORT":"5432",
+        "PG_LOCAL_USER":"lserebri",
+        "PG_LOCAL_PASSWORD":"ktsJ6thEyMwptyFPAhi9xEu3s",
+        "PG_LOCAL_DATABASE":"soundbite-db"
+      },
       "type": "node"
     }
 
