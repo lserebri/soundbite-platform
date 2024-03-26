@@ -6,6 +6,6 @@ const router = express.Router();
 
 const { requiresAuth } = pkg;
 
-router.get('/', requiresAuth(), userController.createUser);
+router.get('/', requiresAuth(), userController.getUser);
 
 export default router;

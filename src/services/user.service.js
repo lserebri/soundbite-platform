@@ -1,7 +1,7 @@
 import User from '../models/user.model.js';
 
-async function handleUser(user) {
-  let existingUser = await User.findOne({ where: { externalId: user.sub } });
+async function handleUserData(user) {
+  const existingUser = await User.findOne({ where: { externalId: user.sub } });
 
     if (!existingUser) {
       const newUser = await User.create({
@@ -13,7 +13,9 @@ async function handleUser(user) {
       return newUser;
     }
 
-    return existingUser;
+    const { externalId, ...userProfile } = { ...existingUser.dataValues };
+
+    return userProfile;
 };
 
-export { handleUser };
+export { handleUserData };

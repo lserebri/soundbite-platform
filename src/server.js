@@ -12,6 +12,8 @@ const port = 3000;
 
 syncModels();
 
+
+
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 app.use(auth(auth0Config));
 

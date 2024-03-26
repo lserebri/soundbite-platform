@@ -7,9 +7,12 @@ export async function create(req, res, next) {
         req.body.videoURL, { 
           startTime: req.body.start,
           endTime: req.body.end 
-        })
-      }
-    );
+        },
+        req.body.soundbiteName,
+        // req.body.oidc.user.sub,
+        'id45453453953'
+      )
+    });
   } catch (err) {
     console.error(`Error while creating soundbite`, err.message);
     next(err);

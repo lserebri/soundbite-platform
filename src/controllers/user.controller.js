@@ -1,8 +1,8 @@
-import { handleUser } from '../services/user.service.js';
+import { handleUserData } from '../services/user.service.js';
 
-export async function createUser( req, res) {
+export async function getUser(req, res) {
   try {
-    const user = await handleUser(req.oidc.user);
+    const user = await handleUserData(req.oidc.user);
     
     // Respond with the user object
     res.status(200).json({ user });
