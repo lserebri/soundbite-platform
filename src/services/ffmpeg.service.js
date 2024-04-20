@@ -3,10 +3,9 @@ import { exec } from 'child_process';
 
 export async function trimFile(tempDir, inputFilePath, timeRange) {
   return new Promise((resolve, reject) => {
+    // TODO: Add to config
     const outputFilePath = `${tempDir}/output.mp4`;
     const command = `ffmpeg -y -i ${inputFilePath} -ss ${timeRange.startTime} -to ${timeRange.endTime} -c:v copy -c:a copy ${outputFilePath}`;
-
-
 
     exec(command, (error, stdout, stderr) => {
       if (error) {
